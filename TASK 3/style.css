@@ -1,0 +1,319 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root{
+    --primary-color:#eff2f4;
+}
+/* scroll bar */
+::-webkit-scrollbar{
+    width: 3px;
+    height: 3px;
+}
+
+::-webkit-scrollbar-track{
+    background:#111;
+}
+::-webkit-scrollbar-thumb{
+    background: var(--primary-color);
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover{
+    background: #333;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    box-sizing: border-box;
+}
+
+body{
+    min-height: 100vh;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary-color);
+}
+
+.container{
+    height: 650px;
+    width: 366px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
+i{
+    cursor: pointer;
+    transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+}
+i:hover{
+    color: #106f9b;
+}
+i.active{
+    color: var(--primary-color);
+}
+.top{
+    width: 100%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    font-size: 16px;
+    z-index: 10;
+    color: #fff;
+}
+
+.container.active .top{
+    color: #111;
+}
+.cover-image{
+    width: 100%;
+    height: 366px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url("music/music-1.jpg") no-repeat;
+    background-size: cover;
+    background-position: center;
+    transform-origin: 0% 0% ;
+    transition: all 0.3s ease-in;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+}
+.container.active .cover-image{
+    transform: scale(0.251);
+    left: 23px;
+    top: 60px;
+    border-radius: 20px;
+    -webkit-transform: scale(0.251);
+    -moz-transform: scale(0.251);
+    -ms-transform: scale(0.251);
+    -o-transform: scale(0.251);
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+.player-body{
+    position: absolute;
+    top: 366px;
+    left: 0;
+    height: 286px;
+    width:100%;
+    background-color: #111;
+    transition: all 0.3s;
+}
+.container.active .player-body{
+    height: 470px;
+    left: 0;
+    top: 180px;
+}
+
+.list-wrapper{
+    height: 425px;
+    width: 100%;
+    overflow: auto;
+    position: absolute;
+    top: 378px;
+    transform-origin: 0% 0%;
+    transition: all 0.3s;
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.1);
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    -webkit-transform: scale(0.1);
+    -moz-transform: scale(0.1);
+    -ms-transform: scale(0.1);
+    -o-transform: scale(0.1);
+}
+
+.container.active .list-wrapper{
+    top: 182px;
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+}
+.list {
+    border-spacing: 0px 2px;
+    width: 100%;
+}
+
+.list tr{
+    height: 50px;
+    text-align: center;
+    background-color: #1d1d1d;
+    cursor: pointer;
+}
+
+.li tr:hover{
+    background-color: #222;
+    cursor: pointer;
+}
+.list .title{
+    width:215px;
+    text-align: left;
+    text-indent: 15px;
+    transition: all 0.3s;
+}
+.list tr:hover .title{
+    padding-left: 5px;
+    width: 210px;
+}
+.current-song-title{
+    position: absolute;
+    right: 23px;
+    font-size: 14px;
+    bottom:-60px;
+    transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+}
+.container.active .current-song-title{
+    bottom: 10px;
+}
+
+.info{
+    position: absolute;
+    left: 50%;
+    top: 440px;
+    transform: translateX(-50%);
+    text-align: center;
+    transition: all 0.3s;
+}
+
+.info h2{
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+.info h3{
+    font-size: 10px;
+    color: #6d6d6d;
+}
+
+.container.active .info{
+    top: 66px;
+    left: 126px;
+    text-align: left;
+    transform: translateX(0);
+    color: #111;
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+}
+
+.controls{
+    display: flex;
+    gap: 90px;
+    justify-content: center;
+    align-items: center;
+    font-size: 26px;
+    width: 100%;
+    height: 35px;
+    position: absolute;
+    bottom: 60px;
+    z-index: 10;
+    transition: all 0.3s;
+}
+
+.controls #playpause{
+    font-size: 40px;
+}
+
+.container.active .controls{
+    position: absolute;
+    width: 216px;
+    bottom: 4px;
+    left:-44px;
+    transform: scale(0.45) ;
+}
+
+.more-controls{
+    color: #6d6d6d;
+    font-size: 15px;
+    height: 45px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    z-index: 20;
+    transition: all 0.3s;
+}
+
+.container.active .more-controls{
+    bottom: -60px;
+}
+
+.bar{
+    position: absolute;
+    width: 320px;
+    height: 2px;
+    top:500px;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: pointer;
+    transform-origin: 0% 0%;
+    background-color: #fff;
+    transition: all 0.3s;
+}
+
+.container.active .bar{
+    top: 119px;
+    left: 126px;
+    color: #111;
+    background-color: #111;
+    transform: scale(0.6875);
+}
+
+.bar .dot{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    position: absolute;
+    top: -4px;
+    left: 0;
+    user-select: none;
+    pointer-events: none;
+    transition: all 0.3s;
+}
+
+.bar .time{
+    width: 100%;
+    position: absolute;
+    top: -20px;
+    left: 0;
+    user-select: none;
+    font-size:10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.3s;
+}
